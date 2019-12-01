@@ -1,7 +1,9 @@
-import domain.Command;
 import domain.Rover;
 import mover.BackwardMover;
 import mover.ForwardMover;
+
+import static domain.Command.BACKWARD;
+import static domain.Command.FORWARD;
 
 public class Mover
 {
@@ -19,11 +21,11 @@ public class Mover
 
     for (char c : commands)
     {
-      if (Command.FORWARD.getValue() == c)
+      if (FORWARD.getValue() == c)
       {
         new ForwardMover(rover).move();
       }
-      else if (Command.BACKWARD.getValue() == c)
+      else if (BACKWARD.getValue() == c)
       {
         new BackwardMover(rover).move();
       }

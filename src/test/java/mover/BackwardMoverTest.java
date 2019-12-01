@@ -30,7 +30,7 @@ public class BackwardMoverTest
     Rover rover = new Rover(initialState);
     BackwardMover mover = new BackwardMover(rover);
     mover.move();
-    State expState = new State((double) 4 , (double) 5, Direction.NORTH);
+    State expState = new State((double) 4 , (double) 5, Direction.SOUTH);
 
     Assert.assertThat(rover.getState(), is(expState));
   }

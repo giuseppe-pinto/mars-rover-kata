@@ -29,7 +29,7 @@ public class LeftMoverTest
     Rover rover = new Rover(initialState);
     LeftMover mover = new LeftMover(rover);
     mover.move();
-    State expState = new State((double) 5 , (double) 4, Direction.NORTH);
+    State expState = new State((double) 5 , (double) 4, Direction.WEST);
 
     Assert.assertThat(rover.getState(), is(expState));
   }

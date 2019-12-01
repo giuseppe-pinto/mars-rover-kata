@@ -56,7 +56,7 @@ public class MoverTest
     Mover mover = new Mover(rover, commands);
     mover.move();
 
-    State expectedState = new State((double) 4, (double) 5, Direction.NORTH);
+    State expectedState = new State((double) 4, (double) 5, Direction.SOUTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -69,7 +69,7 @@ public class MoverTest
     Mover mover = new Mover(rover, commands);
     mover.move();
 
-    State expectedState = new State((double) 3, (double) 5, Direction.NORTH);
+    State expectedState = new State((double) 3, (double) 5, Direction.SOUTH);
     assertThat(rover.getState(), is(expectedState));
   }
 

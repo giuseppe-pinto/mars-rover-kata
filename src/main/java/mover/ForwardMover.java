@@ -1,5 +1,6 @@
 package mover;
 
+import domain.Direction;
 import domain.Rover;
 import domain.State;
 
@@ -19,6 +20,6 @@ public class ForwardMover implements MoverStrategy
       new State(
         rover.getState().getX() + 1,
         rover.getState().getY(),
-        rover.getState().getDirection()));
+        Direction.NORTH));
   }
 }

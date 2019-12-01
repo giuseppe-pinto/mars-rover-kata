@@ -18,7 +18,7 @@ public class ForwardMoverTest
   {
     Double x = (double) 5;
     Double y = (double) 5;
-    Direction direction = Direction.NORTH;
+    Direction direction = Direction.WEST;
 
     initialState = new State(x,y, direction);
   }
