@@ -1,3 +1,4 @@
+import domain.Command;
 import domain.Rover;
 import mover.BackwardMover;
 import mover.ForwardMover;
@@ -18,14 +19,16 @@ public class Mover
 
     for (char c : commands)
     {
-      if ('f' == c)
+      if (Command.FORWARD.getValue() == c)
       {
         new ForwardMover(rover).move();
       }
-      else if ('b' == c)
+      else if (Command.BACKWARD.getValue() == c)
       {
         new BackwardMover(rover).move();
       }
     }
   }
+
+
 }

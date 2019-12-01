@@ -7,7 +7,7 @@ public class LeftMover implements MoverStrategy
 {
   private Rover rover;
 
-  public LeftMover(Rover rover)
+  LeftMover(Rover rover)
   {
     this.rover = rover;
   }
@@ -15,7 +15,10 @@ public class LeftMover implements MoverStrategy
   @Override
   public void move()
   {
-    State initialState = rover.getState();
-    rover.setState(new State(initialState.getX(), initialState.getY() - 1, initialState.getDirection()));
+    rover.setState(
+      new State(
+        rover.getState().getX(),
+        rover.getState().getY() - 1,
+        rover.getState().getDirection()));
   }
 }
