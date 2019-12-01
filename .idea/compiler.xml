@@ -9,6 +9,8 @@
         <module name="mars-rover-kata" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="mars-rover-kata" target="7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

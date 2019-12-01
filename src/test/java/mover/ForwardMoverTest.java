@@ -1,32 +1,36 @@
+package mover;
+
 import domain.Direction;
 import domain.Rover;
 import domain.State;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
-public class RoverTest
+public class ForwardMoverTest
 {
   private State initialState;
 
   @Before
   public void setUp()
   {
-    Double x = (double) 0;
-    Double y = (double) 0;
+    Double x = (double) 5;
+    Double y = (double) 5;
     Direction direction = new Direction("N");
 
     initialState = new State(x,y, direction);
   }
 
   @Test
-  public void createRover()
+  public void move()
   {
     Rover rover = new Rover(initialState);
-    assertThat(rover.getState().getX(), is((double) 0L));
-    assertThat(rover.getState().getY(), is((double) 0L));
-    assertThat(rover.getState().getDirection(), is(new Direction("N")));
+    ForwardMover mover = new ForwardMover(rover);
+    mover.move();
+    State expState = new State((double) 6 , (double) 5, new Direction("N"));
+
+    Assert.assertThat(rover.getState(), is(expState));
   }
 }

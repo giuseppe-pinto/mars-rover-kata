@@ -1,6 +1,6 @@
 package mover;
 
-public interface Mover
+public interface MoverStrategy
 {
   void move();
 }

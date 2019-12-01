@@ -3,7 +3,7 @@ package mover;
 import domain.Rover;
 import domain.State;
 
-public class BackwardMover implements Mover
+public class BackwardMover implements MoverStrategy
 {
   private Rover rover;
 

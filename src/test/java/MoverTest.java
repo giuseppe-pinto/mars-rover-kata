@@ -5,11 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
-public class MoverDispatcherTest
+public class MoverTest
 {
-
   private State initialState;
 
   @Before
@@ -26,10 +25,10 @@ public class MoverDispatcherTest
   public void moveForward()
   {
     char[] commands = {'f'};
-    Rover rover = new Rover(initialState, commands);
+    Rover rover = new Rover(initialState);
 
-    MoverDispatcher moverDispatcher = new MoverDispatcher(rover);
-    moverDispatcher.move();
+    Mover mover = new Mover(rover, commands);
+    mover.move();
 
     State expectedState = new State((double) 6, (double) 5, new Direction("N"));
     assertThat(rover.getState(), is(expectedState));
@@ -39,10 +38,10 @@ public class MoverDispatcherTest
   public void moveForwardTwice()
   {
     char[] commands = {'f', 'f'};
-    Rover rover = new Rover(initialState, commands);
+    Rover rover = new Rover(initialState);
 
-    MoverDispatcher moverDispatcher = new MoverDispatcher(rover);
-    moverDispatcher.move();
+    Mover mover = new Mover(rover, commands);
+    mover.move();
 
     State expectedState = new State((double) 7, (double) 5, new Direction("N"));
     assertThat(rover.getState(), is(expectedState));
@@ -52,10 +51,10 @@ public class MoverDispatcherTest
   public void moveBackward()
   {
     char[] commands = {'b'};
-    Rover rover = new Rover(initialState, commands);
+    Rover rover = new Rover(initialState);
 
-    MoverDispatcher moverDispatcher = new MoverDispatcher(rover);
-    moverDispatcher.move();
+    Mover mover = new Mover(rover, commands);
+    mover.move();
 
     State expectedState = new State((double) 4, (double) 5, new Direction("N"));
     assertThat(rover.getState(), is(expectedState));
@@ -65,10 +64,10 @@ public class MoverDispatcherTest
   public void moveBackwardTwice()
   {
     char[] commands = {'b', 'b'};
-    Rover rover = new Rover(initialState, commands);
+    Rover rover = new Rover(initialState);
 
-    MoverDispatcher moverDispatcher = new MoverDispatcher(rover);
-    moverDispatcher.move();
+    Mover mover = new Mover(rover, commands);
+    mover.move();
 
     State expectedState = new State((double) 3, (double) 5, new Direction("N"));
     assertThat(rover.getState(), is(expectedState));
@@ -78,10 +77,10 @@ public class MoverDispatcherTest
   public void moveBackwardAndForward()
   {
     char[] commands = {'b', 'f'};
-    Rover rover = new Rover(initialState, commands);
+    Rover rover = new Rover(initialState);
 
-    MoverDispatcher moverDispatcher = new MoverDispatcher(rover);
-    moverDispatcher.move();
+    Mover mover = new Mover(rover, commands);
+    mover.move();
 
     State expectedState = new State((double) 5, (double) 5, new Direction("N"));
     assertThat(rover.getState(), is(expectedState));
