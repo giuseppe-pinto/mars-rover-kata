@@ -16,7 +16,7 @@ public class MoverTest
   {
     Double x = (double) 5;
     Double y = (double) 5;
-    Direction direction = new Direction("N");
+    Direction direction = Direction.NORTH;
 
     initialState = new State(x,y, direction);
   }
@@ -30,7 +30,7 @@ public class MoverTest
     Mover mover = new Mover(rover, commands);
     mover.move();
 
-    State expectedState = new State((double) 6, (double) 5, new Direction("N"));
+    State expectedState = new State((double) 6, (double) 5, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -43,7 +43,7 @@ public class MoverTest
     Mover mover = new Mover(rover, commands);
     mover.move();
 
-    State expectedState = new State((double) 7, (double) 5, new Direction("N"));
+    State expectedState = new State((double) 7, (double) 5, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -56,7 +56,7 @@ public class MoverTest
     Mover mover = new Mover(rover, commands);
     mover.move();
 
-    State expectedState = new State((double) 4, (double) 5, new Direction("N"));
+    State expectedState = new State((double) 4, (double) 5, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -69,7 +69,7 @@ public class MoverTest
     Mover mover = new Mover(rover, commands);
     mover.move();
 
-    State expectedState = new State((double) 3, (double) 5, new Direction("N"));
+    State expectedState = new State((double) 3, (double) 5, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -82,7 +82,7 @@ public class MoverTest
     Mover mover = new Mover(rover, commands);
     mover.move();
 
-    State expectedState = new State((double) 5, (double) 5, new Direction("N"));
+    State expectedState = new State((double) 5, (double) 5, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 }

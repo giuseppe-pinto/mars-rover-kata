@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 
 public class LeftMoverTest
 {
@@ -19,7 +18,7 @@ public class LeftMoverTest
   {
     Double x = (double) 5;
     Double y = (double) 5;
-    Direction direction = new Direction("N");
+    Direction direction = Direction.NORTH;
 
     initialState = new State(x,y, direction);
   }
@@ -30,7 +29,7 @@ public class LeftMoverTest
     Rover rover = new Rover(initialState);
     LeftMover mover = new LeftMover(rover);
     mover.move();
-    State expState = new State((double) 5 , (double) 4, new Direction("N"));
+    State expState = new State((double) 5 , (double) 4, Direction.NORTH);
 
     Assert.assertThat(rover.getState(), is(expState));
   }

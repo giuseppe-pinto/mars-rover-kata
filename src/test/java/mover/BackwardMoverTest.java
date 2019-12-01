@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
 
 public class BackwardMoverTest
 {
@@ -20,7 +19,7 @@ public class BackwardMoverTest
   {
     Double x = (double) 5;
     Double y = (double) 5;
-    Direction direction = new Direction("N");
+    Direction direction = Direction.NORTH;
 
     initialState = new State(x,y, direction);
   }
@@ -31,7 +30,7 @@ public class BackwardMoverTest
     Rover rover = new Rover(initialState);
     BackwardMover mover = new BackwardMover(rover);
     mover.move();
-    State expState = new State((double) 4 , (double) 5, new Direction("N"));
+    State expState = new State((double) 4 , (double) 5, Direction.NORTH);
 
     Assert.assertThat(rover.getState(), is(expState));
   }

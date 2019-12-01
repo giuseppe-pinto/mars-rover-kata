@@ -18,7 +18,7 @@ public class ForwardMoverTest
   {
     Double x = (double) 5;
     Double y = (double) 5;
-    Direction direction = new Direction("N");
+    Direction direction = Direction.NORTH;
 
     initialState = new State(x,y, direction);
   }
@@ -29,7 +29,7 @@ public class ForwardMoverTest
     Rover rover = new Rover(initialState);
     ForwardMover mover = new ForwardMover(rover);
     mover.move();
-    State expState = new State((double) 6 , (double) 5, new Direction("N"));
+    State expState = new State((double) 6 , (double) 5, Direction.NORTH);
 
     Assert.assertThat(rover.getState(), is(expState));
   }
