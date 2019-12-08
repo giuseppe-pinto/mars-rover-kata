@@ -1,47 +1,17 @@
-import domain.Rover;
-import mover.BackwardMover;
-import mover.ForwardMover;
-import mover.LeftMover;
-import mover.RightMover;
+import mover.MoverCommand;
 
-import static domain.Command.BACKWARD;
-import static domain.Command.FORWARD;
-import static domain.Command.LEFT;
-import static domain.Command.RIGHT;
+import java.util.List;
 
-public class Mover
+class Mover
 {
-  private Rover rover;
-  private char[] commands;
+  private List<MoverCommand> moverCommands;
 
-  public Mover(Rover rover, char[] commands)
+  void setMoverCommands(List<MoverCommand> moverCommands)
   {
-    this.rover = rover;
-    this.commands = commands;
+    this.moverCommands = moverCommands;
   }
-
-  public void move()
+  void move()
   {
-    for (char c : commands)
-    {
-      if (FORWARD.getValue() == c)
-      {
-        new ForwardMover(rover).move();
-      }
-      else if (BACKWARD.getValue() == c)
-      {
-        new BackwardMover(rover).move();
-      }
-      else if(LEFT.getValue() == c)
-      {
-        new LeftMover(rover).move();
-      }
-      else if(RIGHT.getValue() == c)
-      {
-        new RightMover(rover).move();
-      }
-    }
+    moverCommands.forEach(MoverCommand::execute);
   }
-
-
 }

@@ -4,17 +4,17 @@ import domain.Direction;
 import domain.Rover;
 import domain.State;
 
-public class ForwardMover implements MoverStrategy
+public class ForwardCommand implements MoverCommand
 {
   private Rover rover;
 
-  public ForwardMover(Rover rover)
+  public ForwardCommand(Rover rover)
   {
     this.rover = rover;
   }
 
   @Override
-  public void move()
+  public void execute()
   {
     rover.setState(
       new State(

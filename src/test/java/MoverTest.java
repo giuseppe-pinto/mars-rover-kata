@@ -1,8 +1,11 @@
 import domain.Direction;
 import domain.Rover;
 import domain.State;
+import mover.MoverCommand;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -10,6 +13,7 @@ import static org.junit.Assert.assertThat;
 public class MoverTest
 {
   private Rover rover;
+  private Mover mover;
 
   @Before
   public void setUp()
@@ -19,6 +23,7 @@ public class MoverTest
     Direction direction = Direction.NORTH;
     State initialState = new State(x, y, direction);
     rover = new Rover(initialState);
+    mover = new Mover();
   }
 
   @Test
@@ -26,7 +31,7 @@ public class MoverTest
   {
     char[] commands = {'f'};
 
-    Mover mover = new Mover(rover, commands);
+    mover.setMoverCommands(new ArrayList<>(new CommandAdapter(rover, commands).adapt()));
     mover.move();
 
     State expectedState = new State((double) 5, (double) 6, Direction.NORTH);
@@ -38,7 +43,7 @@ public class MoverTest
   {
     char[] commands = {'f', 'f'};
 
-    Mover mover = new Mover(rover, commands);
+    mover.setMoverCommands(new ArrayList<>(new CommandAdapter(rover, commands).adapt()));
     mover.move();
 
     State expectedState = new State((double) 5, (double) 7, Direction.NORTH);
@@ -50,7 +55,7 @@ public class MoverTest
   {
     char[] commands = {'b'};
 
-    Mover mover = new Mover(rover, commands);
+    mover.setMoverCommands(new ArrayList<>(new CommandAdapter(rover, commands).adapt()));
     mover.move();
 
     State expectedState = new State((double) 5, (double) 4, Direction.SOUTH);
@@ -62,7 +67,7 @@ public class MoverTest
   {
     char[] commands = {'b', 'b'};
 
-    Mover mover = new Mover(rover, commands);
+    mover.setMoverCommands(new ArrayList<>(new CommandAdapter(rover, commands).adapt()));
     mover.move();
 
     State expectedState = new State((double) 5, (double) 3, Direction.SOUTH);
@@ -74,7 +79,7 @@ public class MoverTest
   {
     char[] commands = {'b', 'f'};
 
-    Mover mover = new Mover(rover, commands);
+    mover.setMoverCommands(new ArrayList<>(new CommandAdapter(rover, commands).adapt()));
     mover.move();
 
     State expectedState = new State((double) 5, (double) 5, Direction.NORTH);
@@ -86,7 +91,7 @@ public class MoverTest
   {
     char[] commands = {'l'};
 
-    Mover mover = new Mover(rover, commands);
+    mover.setMoverCommands(new ArrayList<>(new CommandAdapter(rover, commands).adapt()));
     mover.move();
 
     State expectedState = new State((double) 4, (double) 5, Direction.WEST);
@@ -98,7 +103,7 @@ public class MoverTest
   {
     char[] commands = {'r'};
 
-    Mover mover = new Mover(rover, commands);
+    mover.setMoverCommands(new ArrayList<>(new CommandAdapter(rover, commands).adapt()));
     mover.move();
 
     State expectedState = new State((double) 6, (double) 5, Direction.EAST);

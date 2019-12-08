@@ -27,8 +27,8 @@ public class LeftMoverTest
   public void move()
   {
     Rover rover = new Rover(initialState);
-    LeftMover mover = new LeftMover(rover);
-    mover.move();
+    LeftCommand mover = new LeftCommand(rover);
+    mover.execute();
     State expState = new State((double) 4 , (double) 5, Direction.WEST);
 
     Assert.assertThat(rover.getState(), is(expState));
