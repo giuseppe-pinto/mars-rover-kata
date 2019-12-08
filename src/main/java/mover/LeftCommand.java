@@ -6,15 +6,9 @@ import domain.State;
 
 public class LeftCommand implements MoverCommand
 {
-  private Rover rover;
-
-  public LeftCommand(Rover rover)
-  {
-    this.rover = rover;
-  }
 
   @Override
-  public void execute()
+  public void execute(Rover rover)
   {
     rover.setState(
       new State(

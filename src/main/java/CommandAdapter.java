@@ -15,36 +15,35 @@ import static domain.Command.RIGHT;
 
 public class CommandAdapter
 {
-  private Rover rover;
+
   private char[] commands;
 
-  public CommandAdapter(Rover rover, char[] commands)
+  public CommandAdapter(char[] commands)
   {
-    this.rover = rover;
     this.commands = commands;
   }
 
-  public List<MoverCommand> adapt(){
-
+  public List<MoverCommand> adapt()
+  {
     ArrayList<MoverCommand> moverCommands = new ArrayList<>();
 
     for (char c : commands)
     {
       if (FORWARD.getValue() == c)
       {
-        moverCommands.add(new ForwardCommand(rover));
-    }
+        moverCommands.add(new ForwardCommand());
+      }
       else if (BACKWARD.getValue() == c)
       {
-        moverCommands.add(new BackwardCommand(rover));
+        moverCommands.add(new BackwardCommand());
       }
-      else if(LEFT.getValue() == c)
+      else if (LEFT.getValue() == c)
       {
-        moverCommands.add(new LeftCommand(rover));
+        moverCommands.add(new LeftCommand());
       }
-      else if(RIGHT.getValue() == c)
+      else if (RIGHT.getValue() == c)
       {
-        moverCommands.add(new RightCommand(rover));
+        moverCommands.add(new RightCommand());
       }
     }
     return moverCommands;

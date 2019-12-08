@@ -1,6 +1,8 @@
 package mover;
 
+import domain.Rover;
+
 public interface MoverCommand
 {
-  void execute();
+  void execute(Rover rover);
 }

@@ -27,8 +27,8 @@ public class RightMoverTest
   public void move()
   {
     Rover rover = new Rover(initialState);
-    RightCommand mover = new RightCommand(rover);
-    mover.execute();
+    RightCommand mover = new RightCommand();
+    mover.execute(rover);
     State expState = new State((double) 6, (double) 5, Direction.EAST);
 
     assertThat(rover.getState(), is(expState));

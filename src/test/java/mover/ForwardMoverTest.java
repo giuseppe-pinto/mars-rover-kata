@@ -27,8 +27,8 @@ public class ForwardMoverTest
   public void move()
   {
     Rover rover = new Rover(initialState);
-    ForwardCommand mover = new ForwardCommand(rover);
-    mover.execute();
+    ForwardCommand mover = new ForwardCommand();
+    mover.execute(rover);
     State expState = new State((double) 5 , (double) 6, Direction.NORTH);
 
     Assert.assertThat(rover.getState(), is(expState));

@@ -6,15 +6,9 @@ import domain.State;
 
 public class ForwardCommand implements MoverCommand
 {
-  private Rover rover;
-
-  public ForwardCommand(Rover rover)
-  {
-    this.rover = rover;
-  }
 
   @Override
-  public void execute()
+  public void execute(Rover rover)
   {
     rover.setState(
       new State(

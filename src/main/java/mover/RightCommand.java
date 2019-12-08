@@ -6,18 +6,14 @@ import domain.State;
 
 public class RightCommand implements MoverCommand
 {
-  private Rover rover;
-
-  public RightCommand(Rover rover)
-  {
-    this.rover = rover;
-  }
 
   @Override
-  public void execute()
+  public void execute(Rover rover)
   {
-    rover.setState(new State(rover.getState().getX() + 1,
-      rover.getState().getY(),
-      Direction.EAST));
+    rover.setState(
+      new State(
+        rover.getState().getX() + 1,
+        rover.getState().getY(),
+        Direction.EAST));
   }
 }

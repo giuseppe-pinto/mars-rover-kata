@@ -1,3 +1,4 @@
+import domain.Rover;
 import mover.MoverCommand;
 
 import java.util.List;
@@ -10,8 +11,9 @@ class Mover
   {
     this.moverCommands = moverCommands;
   }
-  void move()
+
+  void move(Rover rover)
   {
-    moverCommands.forEach(MoverCommand::execute);
+    moverCommands.forEach(moverCommand -> moverCommand.execute(rover));
   }
 }
