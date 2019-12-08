@@ -16,8 +16,8 @@ public class LeftMoverTest
   @Before
   public void setUp()
   {
-    Double x = (double) 5;
-    Double y = (double) 5;
+    Integer x = 5;
+    Integer y = 5;
     Direction direction = Direction.NORTH;
 
     initialState = new State(x,y, direction);
@@ -26,10 +26,10 @@ public class LeftMoverTest
   @Test
   public void move()
   {
-    Rover rover = new Rover(initialState);
+    Rover rover = new Rover(null, initialState);
     LeftCommand mover = new LeftCommand();
     mover.execute(rover);
-    State expState = new State((double) 4 , (double) 5, Direction.WEST);
+    State expState = new State(4 , 5, Direction.WEST);
 
     Assert.assertThat(rover.getState(), is(expState));
   }

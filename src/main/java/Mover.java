@@ -14,6 +14,25 @@ class Mover
 
   void move(Rover rover)
   {
-    moverCommands.forEach(moverCommand -> moverCommand.execute(rover));
+    if(checkInitialState(rover)){
+      moverCommands.forEach(moverCommand -> moverCommand.execute(rover));
+    }
+    else {
+      throw new MoverException("Wrong initial state, movement is not possible.");
+    }
+  }
+
+  private boolean checkInitialState(Rover rover)
+  {
+    return rover.getState().getCol() <= rover.getGrid().getCols() &&
+      rover.getState().getRow() <= rover.getGrid().getRows();
+  }
+
+  private static class MoverException extends RuntimeException
+  {
+    MoverException(String message)
+    {
+      super(message);
+    }
   }
 }

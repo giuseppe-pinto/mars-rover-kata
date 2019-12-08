@@ -3,9 +3,11 @@ package domain;
 public class Rover
 {
   private State state;
+  private Grid grid;
 
-  public Rover(State state)
+  public Rover(Grid grid, State state)
   {
+    this.grid = grid;
     this.state = state;
   }
 
@@ -17,5 +19,10 @@ public class Rover
   public void setState(State state)
   {
     this.state = state;
+  }
+
+  public Grid getGrid()
+  {
+    return grid;
   }
 }

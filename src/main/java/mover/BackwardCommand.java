@@ -10,10 +10,29 @@ public class BackwardCommand implements MoverCommand
   @Override
   public void execute(Rover rover)
   {
-    rover.setState(
-      new State(
-        rover.getState().getX(),
-        rover.getState().getY() - 1,
-        Direction.SOUTH));
+
+    int[][] matrix = rover.getGrid().getMatrix();
+    State actualState = rover.getState();
+
+    try{
+
+      matrix[actualState.getRow()+1][actualState.getCol()] = 1;
+      rover.setState(
+        new State(
+          actualState.getCol(),
+          actualState.getRow()+1,
+          Direction.SOUTH));
+
+    }catch (IndexOutOfBoundsException e){
+
+      matrix[0][actualState.getCol()] = 1;
+      rover.setState(
+        new State(
+          actualState.getCol(),
+          0,
+          Direction.SOUTH));
+
+    }
+
   }
 }

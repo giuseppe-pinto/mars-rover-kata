@@ -4,24 +4,24 @@ import java.util.Objects;
 
 public class State
 {
-  private final Double x;
-  private final Double y;
+  private final Integer col;
+  private final Integer row;
   private final Direction direction;
-  public State(Double x, Double y, Direction direction)
+  public State(Integer col, Integer row, Direction direction)
   {
-    this.x = x;
-    this.y = y;
+    this.col = col;
+    this.row = row;
     this.direction = direction;
   }
 
-  public Double getX()
+  public Integer getCol()
   {
-    return x;
+    return col;
   }
 
-  public Double getY()
+  public Integer getRow()
   {
-    return y;
+    return row;
   }
 
   public Direction getDirection()
@@ -41,23 +41,23 @@ public class State
       return false;
     }
     State state = (State) o;
-    return Objects.equals(x, state.x) &&
-      Objects.equals(y, state.y) &&
+    return Objects.equals(col, state.col) &&
+      Objects.equals(row, state.row) &&
       Objects.equals(direction, state.direction);
   }
 
   @Override
   public int hashCode()
   {
-    return Objects.hash(x, y, direction);
+    return Objects.hash(col, row, direction);
   }
 
   @Override
   public String toString()
   {
     return "State{" +
-      "x=" + x +
-      ", y=" + y +
+      "x=" + col +
+      ", y=" + row +
       ", direction=" + direction +
       '}';
   }

@@ -1,4 +1,5 @@
-import domain.Rover;
+package adapters;
+
 import mover.BackwardCommand;
 import mover.ForwardCommand;
 import mover.LeftCommand;
@@ -27,21 +28,21 @@ public class CommandAdapter
   {
     ArrayList<MoverCommand> moverCommands = new ArrayList<>();
 
-    for (char c : commands)
+    for (char command : commands)
     {
-      if (FORWARD.getValue() == c)
+      if (FORWARD.getValue() == command)
       {
         moverCommands.add(new ForwardCommand());
       }
-      else if (BACKWARD.getValue() == c)
+      else if (BACKWARD.getValue() == command)
       {
         moverCommands.add(new BackwardCommand());
       }
-      else if (LEFT.getValue() == c)
+      else if (LEFT.getValue() == command)
       {
         moverCommands.add(new LeftCommand());
       }
-      else if (RIGHT.getValue() == c)
+      else if (RIGHT.getValue() == command)
       {
         moverCommands.add(new RightCommand());
       }

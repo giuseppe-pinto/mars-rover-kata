@@ -12,8 +12,8 @@ public class RightCommand implements MoverCommand
   {
     rover.setState(
       new State(
-        rover.getState().getX() + 1,
-        rover.getState().getY(),
+        rover.getState().getCol() + 1,
+        rover.getState().getRow(),
         Direction.EAST));
   }
 }

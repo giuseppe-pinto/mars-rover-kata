@@ -1,6 +1,7 @@
 package mover;
 
 import domain.Direction;
+import domain.Grid;
 import domain.Rover;
 import domain.State;
 import org.junit.Assert;
@@ -16,8 +17,8 @@ public class ForwardMoverTest
   @Before
   public void setUp()
   {
-    Double x = (double) 5;
-    Double y = (double) 5;
+    Integer x = 5;
+    Integer y = 5;
     Direction direction = Direction.WEST;
 
     initialState = new State(x,y, direction);
@@ -26,10 +27,10 @@ public class ForwardMoverTest
   @Test
   public void move()
   {
-    Rover rover = new Rover(initialState);
+    Rover rover = new Rover(new Grid(15,15), initialState);
     ForwardCommand mover = new ForwardCommand();
     mover.execute(rover);
-    State expState = new State((double) 5 , (double) 6, Direction.NORTH);
+    State expState = new State(5 , 4, Direction.NORTH);
 
     Assert.assertThat(rover.getState(), is(expState));
   }

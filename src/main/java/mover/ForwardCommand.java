@@ -12,8 +12,8 @@ public class ForwardCommand implements MoverCommand
   {
     rover.setState(
       new State(
-        rover.getState().getX(),
-        rover.getState().getY() + 1,
+        rover.getState().getCol(),
+        rover.getState().getRow() - 1,
         Direction.NORTH));
   }
 }

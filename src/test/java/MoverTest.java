@@ -1,4 +1,6 @@
+import adapters.CommandAdapter;
 import domain.Direction;
+import domain.Grid;
 import domain.Rover;
 import domain.State;
 import org.junit.Before;
@@ -15,11 +17,15 @@ public class MoverTest
   @Before
   public void setUp()
   {
-    Double x = (double) 5;
-    Double y = (double) 5;
+    Grid grid = new Grid(10, 10);
+
+    Integer x = 5;
+    Integer y = 5;
     Direction direction = Direction.NORTH;
+
     State initialState = new State(x, y, direction);
-    rover = new Rover(initialState);
+
+    rover = new Rover(grid, initialState);
     mover = new Mover();
   }
 
@@ -31,7 +37,7 @@ public class MoverTest
     mover.setMoverCommands(new CommandAdapter(commands).adapt());
     mover.move(rover);
 
-    State expectedState = new State((double) 5, (double) 6, Direction.NORTH);
+    State expectedState = new State(5, 4, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -43,7 +49,7 @@ public class MoverTest
     mover.setMoverCommands(new CommandAdapter(commands).adapt());
     mover.move(rover);
 
-    State expectedState = new State((double) 5, (double) 7, Direction.NORTH);
+    State expectedState = new State(5, 3, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -55,7 +61,7 @@ public class MoverTest
     mover.setMoverCommands(new CommandAdapter(commands).adapt());
     mover.move(rover);
 
-    State expectedState = new State((double) 5, (double) 4, Direction.SOUTH);
+    State expectedState = new State(5, 6, Direction.SOUTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -67,7 +73,7 @@ public class MoverTest
     mover.setMoverCommands(new CommandAdapter(commands).adapt());
     mover.move(rover);
 
-    State expectedState = new State((double) 5, (double) 3, Direction.SOUTH);
+    State expectedState = new State(5, 7, Direction.SOUTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -79,7 +85,7 @@ public class MoverTest
     mover.setMoverCommands(new CommandAdapter(commands).adapt());
     mover.move(rover);
 
-    State expectedState = new State((double) 5, (double) 5, Direction.NORTH);
+    State expectedState = new State(5, 5, Direction.NORTH);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -91,7 +97,7 @@ public class MoverTest
     mover.setMoverCommands(new CommandAdapter(commands).adapt());
     mover.move(rover);
 
-    State expectedState = new State((double) 4, (double) 5, Direction.WEST);
+    State expectedState = new State(4, 5, Direction.WEST);
     assertThat(rover.getState(), is(expectedState));
   }
 
@@ -103,7 +109,15 @@ public class MoverTest
     mover.setMoverCommands(new CommandAdapter(commands).adapt());
     mover.move(rover);
 
-    State expectedState = new State((double) 6, (double) 5, Direction.EAST);
+    State expectedState = new State(6, 5, Direction.EAST);
     assertThat(rover.getState(), is(expectedState));
+  }
+
+  @Test(expected = RuntimeException.class)
+  public void wrongInitialState()
+  {
+    State wrongState = new State(3, 3, Direction.SOUTH);
+    Rover rover = new Rover(new Grid(3,3), wrongState);
+    mover.move(rover);
   }
 }
