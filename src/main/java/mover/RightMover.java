@@ -8,7 +8,7 @@ public class RightMover implements MoverStrategy
 {
   private Rover rover;
 
-  RightMover(Rover rover)
+  public RightMover(Rover rover)
   {
     this.rover = rover;
   }
@@ -16,8 +16,8 @@ public class RightMover implements MoverStrategy
   @Override
   public void move()
   {
-    rover.setState(new State(rover.getState().getX(),
-      rover.getState().getY() + 1,
+    rover.setState(new State(rover.getState().getX() + 1,
+      rover.getState().getY(),
       Direction.EAST));
   }
 }

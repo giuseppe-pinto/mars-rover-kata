@@ -18,8 +18,8 @@ public class BackwardMover implements MoverStrategy
   {
     rover.setState(
       new State(
-        rover.getState().getX() - 1,
-        rover.getState().getY(),
+        rover.getState().getX(),
+        rover.getState().getY() - 1,
         Direction.SOUTH));
   }
 }

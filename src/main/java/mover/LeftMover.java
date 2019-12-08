@@ -8,7 +8,7 @@ public class LeftMover implements MoverStrategy
 {
   private Rover rover;
 
-  LeftMover(Rover rover)
+  public LeftMover(Rover rover)
   {
     this.rover = rover;
   }
@@ -18,8 +18,8 @@ public class LeftMover implements MoverStrategy
   {
     rover.setState(
       new State(
-        rover.getState().getX(),
-        rover.getState().getY() - 1,
+        rover.getState().getX() - 1,
+        rover.getState().getY(),
         Direction.WEST));
   }
 }

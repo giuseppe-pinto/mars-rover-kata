@@ -55,11 +55,10 @@ public class State
   @Override
   public String toString()
   {
-    return "domain.State{" +
+    return "State{" +
       "x=" + x +
       ", y=" + y +
-      ", initialDirection=" + direction +
+      ", direction=" + direction +
       '}';
   }
-
 }

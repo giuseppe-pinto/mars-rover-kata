@@ -29,7 +29,7 @@ public class ForwardMoverTest
     Rover rover = new Rover(initialState);
     ForwardMover mover = new ForwardMover(rover);
     mover.move();
-    State expState = new State((double) 6 , (double) 5, Direction.NORTH);
+    State expState = new State((double) 5 , (double) 6, Direction.NORTH);
 
     Assert.assertThat(rover.getState(), is(expState));
   }
