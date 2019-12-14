@@ -16,13 +16,13 @@ public class RoverTest
   @Before
   public void setUp()
   {
-    grid = new Grid(5,5);
+    grid = new Grid(5, 5);
 
     Integer col = 0;
     Integer row = 0;
     Direction direction = Direction.NORTH;
 
-    initialState = new State(col,row, direction);
+    initialState = new State(row, col, direction);
   }
 
   @Test

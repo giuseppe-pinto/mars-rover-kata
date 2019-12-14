@@ -19,8 +19,7 @@ public class BackwardCommand implements MoverCommand
       matrix[actualState.getRow()+1][actualState.getCol()] = 1;
       rover.setState(
         new State(
-          actualState.getCol(),
-          actualState.getRow()+1,
+          actualState.getRow()+1, actualState.getCol(),
           Direction.SOUTH));
 
     }catch (IndexOutOfBoundsException e){
@@ -28,8 +27,7 @@ public class BackwardCommand implements MoverCommand
       matrix[0][actualState.getCol()] = 1;
       rover.setState(
         new State(
-          actualState.getCol(),
-          0,
+          0, actualState.getCol(),
           Direction.SOUTH));
 
     }

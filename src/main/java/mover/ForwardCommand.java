@@ -18,16 +18,16 @@ public class ForwardCommand implements MoverCommand
       matrix[actualState.getRow() - 1][actualState.getCol()] = 1;
       rover.setState(
         new State(
-          rover.getState().getCol(),
-          rover.getState().getRow() - 1,
+          rover.getState().getRow() - 1, rover.getState().getCol(),
           Direction.NORTH));
     }
     catch (IndexOutOfBoundsException e)
     {
-      matrix[matrix.length - 1][actualState.getCol()] = 1;
+      matrix[rover.getGrid().getRows() - 1][actualState.getCol()] = 1;
+
       rover.setState(
-        new State(actualState.getCol(),
-          matrix.length - 1,
+        new State(rover.getGrid().getRows() - 1,
+          actualState.getCol(),
           Direction.NORTH));
     }
   }

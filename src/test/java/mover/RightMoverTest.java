@@ -20,7 +20,7 @@ public class RightMoverTest
     Integer row = 5;
     Direction direction = Direction.NORTH;
 
-    initialState = new State(col,row, direction);
+    initialState = new State(row, col, direction);
   }
 
   @Test
@@ -29,7 +29,7 @@ public class RightMoverTest
     Rover rover = new Rover(null, initialState);
     RightCommand mover = new RightCommand();
     mover.execute(rover);
-    State expState = new State(6, 5, Direction.EAST);
+    State expState = new State(5, 6, Direction.EAST);
 
     assertThat(rover.getState(), is(expState));
   }

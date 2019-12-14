@@ -7,7 +7,8 @@ public class State
   private final Integer col;
   private final Integer row;
   private final Direction direction;
-  public State(Integer col, Integer row, Direction direction)
+
+  public State(Integer row, Integer col, Direction direction)
   {
     this.col = col;
     this.row = row;

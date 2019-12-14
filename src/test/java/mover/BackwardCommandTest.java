@@ -10,49 +10,45 @@ import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 
-public class BackwardMoverTest
+public class BackwardCommandTest
 {
-
+  private final BackwardCommand backwardCommand = new BackwardCommand();
   private State initialState;
   private Grid grid;
 
   @Before
   public void setUp()
   {
-    grid = new Grid(10,10);
-
     Integer col = 2;
     Integer row = 2;
     Direction direction = Direction.NORTH;
 
-    initialState = new State(col,row, direction);
+    initialState = new State(row, col, direction);
+
+    grid = new Grid(10, 10);
   }
 
   @Test
-  public void move()
+  public void execute()
   {
     Rover rover = new Rover(grid, initialState);
-    
-    BackwardCommand mover = new BackwardCommand();
-    mover.execute(rover);
-    
-    State expState = new State(2 , 3, Direction.SOUTH);
-    System.out.println(rover.getGrid().toString());
 
+    backwardCommand.execute(rover);
+    
+    State expState = new State(3, 2 , Direction.SOUTH);
+    System.out.println(rover.getGrid().toString());
     Assert.assertThat(rover.getState(), is(expState));
   }
 
   @Test
   public void switchEdgeFromSudToNorth()
   {
-    State downBorderState = new State(3, 9, Direction.SOUTH);
+    State downBorderState = new State(9, 3, Direction.SOUTH);
 
     Rover rover = new Rover(grid, downBorderState);
+    backwardCommand.execute(rover);
 
-    BackwardCommand mover = new BackwardCommand();
-    mover.execute(rover);
-
-    State expState = new State(3 , 0, Direction.SOUTH);
+    State expState = new State(0, 3 , Direction.SOUTH);
     System.out.println(rover.getGrid().toString());
     Assert.assertThat(rover.getState(), is(expState));
   }
