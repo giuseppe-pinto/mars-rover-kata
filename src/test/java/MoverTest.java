@@ -19,11 +19,11 @@ public class MoverTest
   {
     Grid grid = new Grid(10, 10);
 
-    Integer x = 5;
-    Integer y = 5;
+    Integer col = 5;
+    Integer row = 5;
     Direction direction = Direction.NORTH;
 
-    State initialState = new State(x, y, direction);
+    State initialState = new State(col, row, direction);
 
     rover = new Rover(grid, initialState);
     mover = new Mover();

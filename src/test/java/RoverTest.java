@@ -18,11 +18,11 @@ public class RoverTest
   {
     grid = new Grid(5,5);
 
-    Integer x = 0;
-    Integer y = 0;
+    Integer col = 0;
+    Integer row = 0;
     Direction direction = Direction.NORTH;
 
-    initialState = new State(x,y, direction);
+    initialState = new State(col,row, direction);
   }
 
   @Test

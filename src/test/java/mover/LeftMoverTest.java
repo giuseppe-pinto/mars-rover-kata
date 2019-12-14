@@ -16,11 +16,11 @@ public class LeftMoverTest
   @Before
   public void setUp()
   {
-    Integer x = 5;
-    Integer y = 5;
+    Integer col = 5;
+    Integer row = 5;
     Direction direction = Direction.NORTH;
 
-    initialState = new State(x,y, direction);
+    initialState = new State(col,row, direction);
   }
 
   @Test

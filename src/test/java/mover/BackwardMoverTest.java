@@ -21,11 +21,11 @@ public class BackwardMoverTest
   {
     grid = new Grid(10,10);
 
-    Integer x = 2;
-    Integer y = 2;
+    Integer col = 2;
+    Integer row = 2;
     Direction direction = Direction.NORTH;
 
-    initialState = new State(x,y, direction);
+    initialState = new State(col,row, direction);
   }
 
   @Test
