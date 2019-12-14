@@ -41,7 +41,7 @@ public class BackwardCommandTest
   }
 
   @Test
-  public void switchEdgeFromSudToNorth()
+  public void switchEdge()
   {
     State downBorderState = new State(9, 3, Direction.SOUTH);
 

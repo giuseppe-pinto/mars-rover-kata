@@ -38,7 +38,7 @@ public class LeftCommandTest
   }
 
   @Test
-  public void switchEdgeFromWestToEst()
+  public void switchEdge()
   {
     Rover rover = new Rover(grid, new State(2, 0, Direction.SOUTH));
     leftCommand.execute(rover);

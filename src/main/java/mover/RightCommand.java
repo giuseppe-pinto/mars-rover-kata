@@ -1,8 +1,9 @@
 package mover;
 
-import domain.Direction;
 import domain.Rover;
 import domain.State;
+
+import static domain.Direction.EAST;
 
 public class RightCommand implements MoverCommand
 {
@@ -10,9 +11,27 @@ public class RightCommand implements MoverCommand
   @Override
   public void execute(Rover rover)
   {
-    rover.setState(
-      new State(
-        rover.getState().getRow(), rover.getState().getCol() + 1,
-        Direction.EAST));
+    int[][] matrix = rover.getGrid().getMatrix();
+    State actualState = rover.getState();
+
+    try
+    {
+      matrix[actualState.getRow()][actualState.getCol() + 1] = 1;
+
+      rover.setState(
+        new State(
+          actualState.getRow(), actualState.getCol() + 1,
+          EAST));
+    }
+    catch (IndexOutOfBoundsException e)
+    {
+      matrix[actualState.getRow()][0] = 1;
+
+      rover.setState(
+        new State(
+          actualState.getRow(),
+          0,
+          EAST));
+    }
   }
 }

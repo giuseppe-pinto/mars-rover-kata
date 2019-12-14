@@ -38,7 +38,7 @@ public class ForwardCommandTest
   }
 
   @Test
-  public void switchEdgeFromNorthToSudInZeroZero()
+  public void switchEdgeInZeroZero()
   {
     Rover rover = new Rover(grid, new State(0, 0, Direction.EAST));
     forwardCommand.execute(rover);
@@ -48,7 +48,7 @@ public class ForwardCommandTest
   }
 
   @Test
-  public void switchEdgeFromNorthToSudInOneZero()
+  public void switchEdgeInOneZero()
   {
     Rover rover = new Rover(grid, new State(0, 1, Direction.EAST));
     forwardCommand.execute(rover);
